@@ -48,12 +48,13 @@ import {
   SoundEditionInitialized,
   Transfer
 } from "../generated/schema"
+import { Address, Bytes } from "@graphprotocol/graph-ts"
 
 export function handleAirdropped(event: AirdroppedEvent): void {
   let entity = new Airdropped(
     event.transaction.hash.concatI32(event.logIndex.toI32())
   )
-  entity.to = event.params.to
+  entity.to = event.params.to.map<Bytes>((address: Address) => address as Bytes)
   entity.quantity = event.params.quantity
   entity.fromTokenId = event.params.fromTokenId
 
@@ -143,7 +144,7 @@ export function handleERC20Withdrawn(event: ERC20WithdrawnEvent): void {
     event.transaction.hash.concatI32(event.logIndex.toI32())
   )
   entity.recipient = event.params.recipient
-  entity.tokens = event.params.tokens
+  entity.tokens = event.params.tokens.map<Bytes>((address: Address) => address as Bytes)
   entity.amounts = event.params.amounts
   entity.caller = event.params.caller
 

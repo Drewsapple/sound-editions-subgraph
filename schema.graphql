@@ -1,6 +1,6 @@
 type Airdropped @entity(immutable: true) {
   id: Bytes!
-  to: [Bytes]! # address[]
+  to: [Bytes!]! # address[]
   quantity: BigInt! # uint256
   fromTokenId: BigInt! # uint256
   blockNumber: BigInt!
@@ -58,8 +58,8 @@ type ContractURISet @entity(immutable: true) {
 type ERC20Withdrawn @entity(immutable: true) {
   id: Bytes!
   recipient: Bytes! # address
-  tokens: [Bytes]! # address[]
-  amounts: [BigInt]! # uint256[]
+  tokens: [Bytes!]! # address[]
+  amounts: [BigInt!]! # uint256[]
   caller: Bytes! # address
   blockNumber: BigInt!
   blockTimestamp: BigInt!
