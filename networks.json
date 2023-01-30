@@ -2,6 +2,9 @@
   "mainnet": {
     "SoundEditionV1_1": {
       "address": "0xE5fEB62FB34aDbA661B7c8256887a8B9a21C2278"
+    },
+    "SoundCreatorV1": {
+      "address": "0xaef3e8c8723d9c31863be8de54df2668ef7c4b89"
     }
   }
 }

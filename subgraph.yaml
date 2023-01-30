@@ -82,8 +82,44 @@ dataSources:
           handler: handleRolesUpdated
         - event: RoyaltySet(uint16)
           handler: handleRoyaltySet
-        - event: SoundEditionInitialized(indexed address,string,string,address,string,string,address,uint16,uint32,uint32,uint32,uint8)
+        - event: SoundEditionInitialized(indexed
+            address,string,string,address,string,string,address,uint16,uint32,uint32,uint32,uint8)
           handler: handleSoundEditionInitialized
         - event: Transfer(indexed address,indexed address,indexed uint256)
           handler: handleTransfer
       file: ./src/sound-edition-v-1-1.ts
+  - kind: ethereum
+    name: SoundCreatorV1
+    network: mainnet
+    source:
+      address: "0xaef3e8c8723d9c31863be8de54df2668ef7c4b89"
+      abi: SoundCreatorV1
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - SoundCreatorV1OwnershipHandoverCanceled
+        - SoundCreatorV1OwnershipHandoverRequested
+        - SoundCreatorV1OwnershipTransferred
+        - SoundCreatorV1RolesUpdated
+        - SoundEditionCreated
+        - SoundEditionImplementationSet
+      abis:
+        - name: SoundCreatorV1
+          file: ./abis/SoundCreatorV1.json
+      eventHandlers:
+        - event: SoundCreatorV1OwnershipHandoverCanceled(indexed address)
+          handler: handleSoundCreatorV1OwnershipHandoverCanceled
+        - event: SoundCreatorV1OwnershipHandoverRequested(indexed address)
+          handler: handleSoundCreatorV1OwnershipHandoverRequested
+        - event: SoundCreatorV1OwnershipTransferred(indexed address,indexed address)
+          handler: handleSoundCreatorV1OwnershipTransferred
+        - event: SoundCreatorV1RolesUpdated(indexed address,indexed uint256)
+          handler: handleSoundCreatorV1RolesUpdated
+        - event: SoundEditionCreated(indexed address,indexed
+            address,bytes,address[],bytes[],bytes[])
+          handler: handleSoundEditionCreated
+        - event: SoundEditionImplementationSet(address)
+          handler: handleSoundEditionImplementationSet
+      file: ./src/sound-creator-v-1.ts

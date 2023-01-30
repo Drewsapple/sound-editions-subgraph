@@ -1,3 +1,4 @@
+# SoundEditionV1_1
 type Airdropped @entity(immutable: true) {
   id: Bytes!
   to: [Bytes!]! # address[]
@@ -211,6 +212,62 @@ type Transfer @entity(immutable: true) {
   from: Bytes! # address
   to: Bytes! # address
   tokenId: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+# SoundCreatorV1
+type SoundCreatorV1OwnershipHandoverCanceled @entity(immutable: true) {
+  id: Bytes!
+  pendingOwner: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type SoundCreatorV1OwnershipHandoverRequested @entity(immutable: true) {
+  id: Bytes!
+  pendingOwner: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type SoundCreatorV1OwnershipTransferred @entity(immutable: true) {
+  id: Bytes!
+  oldOwner: Bytes! # address
+  newOwner: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type SoundCreatorV1RolesUpdated @entity(immutable: true) {
+  id: Bytes!
+  user: Bytes! # address
+  roles: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type SoundEditionCreated @entity(immutable: true) {
+  id: Bytes!
+  soundEdition: Bytes! # address
+  deployer: Bytes! # address
+  initData: Bytes! # bytes
+  contracts: [Bytes!]! # address[]
+  data: [Bytes!]! # bytes[]
+  results: [Bytes!]! # bytes[]
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type SoundEditionImplementationSet @entity(immutable: true) {
+  id: Bytes!
+  newImplementation: Bytes! # address
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!
