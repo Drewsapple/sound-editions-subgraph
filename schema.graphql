@@ -1,0 +1,217 @@
+type Airdropped @entity(immutable: true) {
+  id: Bytes!
+  to: [Bytes]! # address[]
+  quantity: BigInt! # uint256
+  fromTokenId: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type Approval @entity(immutable: true) {
+  id: Bytes!
+  owner: Bytes! # address
+  approved: Bytes! # address
+  tokenId: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type ApprovalForAll @entity(immutable: true) {
+  id: Bytes!
+  owner: Bytes! # address
+  operator: Bytes! # address
+  approved: Boolean! # bool
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type BaseURISet @entity(immutable: true) {
+  id: Bytes!
+  baseURI: String! # string
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type ConsecutiveTransfer @entity(immutable: true) {
+  id: Bytes!
+  fromTokenId: BigInt! # uint256
+  toTokenId: BigInt! # uint256
+  from: Bytes! # address
+  to: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type ContractURISet @entity(immutable: true) {
+  id: Bytes!
+  contractURI: String! # string
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type ERC20Withdrawn @entity(immutable: true) {
+  id: Bytes!
+  recipient: Bytes! # address
+  tokens: [Bytes]! # address[]
+  amounts: [BigInt]! # uint256[]
+  caller: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type ETHWithdrawn @entity(immutable: true) {
+  id: Bytes!
+  recipient: Bytes! # address
+  amount: BigInt! # uint256
+  caller: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type EditionCutoffTimeSet @entity(immutable: true) {
+  id: Bytes!
+  editionCutoffTime_: BigInt! # uint32
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type EditionMaxMintableRangeSet @entity(immutable: true) {
+  id: Bytes!
+  editionMaxMintableLower_: BigInt! # uint32
+  editionMaxMintableUpper_: BigInt! # uint32
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type FundingRecipientSet @entity(immutable: true) {
+  id: Bytes!
+  fundingRecipient: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type MetadataFrozen @entity(immutable: true) {
+  id: Bytes!
+  metadataModule: Bytes! # address
+  baseURI: String! # string
+  contractURI: String! # string
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type MetadataModuleSet @entity(immutable: true) {
+  id: Bytes!
+  metadataModule: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type MintRandomnessEnabledSet @entity(immutable: true) {
+  id: Bytes!
+  mintRandomnessEnabled_: Boolean! # bool
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type Minted @entity(immutable: true) {
+  id: Bytes!
+  to: Bytes! # address
+  quantity: BigInt! # uint256
+  fromTokenId: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type OperatorFilteringEnablededSet @entity(immutable: true) {
+  id: Bytes!
+  operatorFilteringEnabled_: Boolean! # bool
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type OwnershipHandoverCanceled @entity(immutable: true) {
+  id: Bytes!
+  pendingOwner: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type OwnershipHandoverRequested @entity(immutable: true) {
+  id: Bytes!
+  pendingOwner: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type OwnershipTransferred @entity(immutable: true) {
+  id: Bytes!
+  oldOwner: Bytes! # address
+  newOwner: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type RolesUpdated @entity(immutable: true) {
+  id: Bytes!
+  user: Bytes! # address
+  roles: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type RoyaltySet @entity(immutable: true) {
+  id: Bytes!
+  bps: Int! # uint16
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type SoundEditionInitialized @entity(immutable: true) {
+  id: Bytes!
+  edition_: Bytes! # address
+  name_: String! # string
+  symbol_: String! # string
+  metadataModule_: Bytes! # address
+  baseURI_: String! # string
+  contractURI_: String! # string
+  fundingRecipient_: Bytes! # address
+  royaltyBPS_: Int! # uint16
+  editionMaxMintableLower_: BigInt! # uint32
+  editionMaxMintableUpper_: BigInt! # uint32
+  editionCutoffTime_: BigInt! # uint32
+  flags_: Int! # uint8
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type Transfer @entity(immutable: true) {
+  id: Bytes!
+  from: Bytes! # address
+  to: Bytes! # address
+  tokenId: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}

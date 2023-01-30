@@ -1,0 +1,89 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: SoundEditionV1_1
+    network: mainnet
+    source:
+      address: "0xE5fEB62FB34aDbA661B7c8256887a8B9a21C2278"
+      abi: SoundEditionV1_1
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Airdropped
+        - Approval
+        - ApprovalForAll
+        - BaseURISet
+        - ConsecutiveTransfer
+        - ContractURISet
+        - ERC20Withdrawn
+        - ETHWithdrawn
+        - EditionCutoffTimeSet
+        - EditionMaxMintableRangeSet
+        - FundingRecipientSet
+        - MetadataFrozen
+        - MetadataModuleSet
+        - MintRandomnessEnabledSet
+        - Minted
+        - OperatorFilteringEnablededSet
+        - OwnershipHandoverCanceled
+        - OwnershipHandoverRequested
+        - OwnershipTransferred
+        - RolesUpdated
+        - RoyaltySet
+        - SoundEditionInitialized
+        - Transfer
+      abis:
+        - name: SoundEditionV1_1
+          file: ./abis/SoundEditionV1_1.json
+      eventHandlers:
+        - event: Airdropped(address[],uint256,uint256)
+          handler: handleAirdropped
+        - event: Approval(indexed address,indexed address,indexed uint256)
+          handler: handleApproval
+        - event: ApprovalForAll(indexed address,indexed address,bool)
+          handler: handleApprovalForAll
+        - event: BaseURISet(string)
+          handler: handleBaseURISet
+        - event: ConsecutiveTransfer(indexed uint256,uint256,indexed address,indexed address)
+          handler: handleConsecutiveTransfer
+        - event: ContractURISet(string)
+          handler: handleContractURISet
+        - event: ERC20Withdrawn(address,address[],uint256[],address)
+          handler: handleERC20Withdrawn
+        - event: ETHWithdrawn(address,uint256,address)
+          handler: handleETHWithdrawn
+        - event: EditionCutoffTimeSet(uint32)
+          handler: handleEditionCutoffTimeSet
+        - event: EditionMaxMintableRangeSet(uint32,uint32)
+          handler: handleEditionMaxMintableRangeSet
+        - event: FundingRecipientSet(address)
+          handler: handleFundingRecipientSet
+        - event: MetadataFrozen(address,string,string)
+          handler: handleMetadataFrozen
+        - event: MetadataModuleSet(address)
+          handler: handleMetadataModuleSet
+        - event: MintRandomnessEnabledSet(bool)
+          handler: handleMintRandomnessEnabledSet
+        - event: Minted(address,uint256,uint256)
+          handler: handleMinted
+        - event: OperatorFilteringEnablededSet(bool)
+          handler: handleOperatorFilteringEnablededSet
+        - event: OwnershipHandoverCanceled(indexed address)
+          handler: handleOwnershipHandoverCanceled
+        - event: OwnershipHandoverRequested(indexed address)
+          handler: handleOwnershipHandoverRequested
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: RolesUpdated(indexed address,indexed uint256)
+          handler: handleRolesUpdated
+        - event: RoyaltySet(uint16)
+          handler: handleRoyaltySet
+        - event: SoundEditionInitialized(indexed address,string,string,address,string,string,address,uint16,uint32,uint32,uint32,uint8)
+          handler: handleSoundEditionInitialized
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleTransfer
+      file: ./src/sound-edition-v-1-1.ts
